@@ -1,0 +1,12 @@
+.sidebar {
+    grid-area: sidebar;
+    background-color: blanchedalmond;
+}
+
+.item {
+    color: white;
+}
+
+.item.active {
+    color: gold;
+}
