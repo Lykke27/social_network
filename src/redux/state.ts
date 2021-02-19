@@ -1,62 +1,5 @@
-let rerenderEntireTree = (state: StateType) => {
-    console.log('State changed')
-}
-
-export type SidebarType = {
-    sidebarFriends: Array<SidebarFriendsType>
-}
-
-export type SidebarFriendsType = {
-    id: number
-    avatar: string
-    name: string
-}
-
-export type FriendsPageType = {
-    friendsData: Array<FriendsDataType>
-}
-
-export type FriendsDataType = {
-    id: number
-    name: string
-    avatar: string
-}
-
-export type DialogsPageType = {
-    messagesData: Array<MessagesDataType>
-    dialogsData: Array<DialogsDataType>
-}
-
-export type MessagesDataType = {
-    id: number
-    message: string
-}
-
-export type DialogsDataType = {
-    id: number
-    name: string
-    avatar: string
-}
-
-export type PostType = {
-    id: number
-    message: string
-    likeCount: number
-}
-
-export type ProfilePageType = {
-    posts: Array<PostType>
-    newPostText: string
-}
-
-export type StateType = {
-    profilePage: ProfilePageType
-    dialogsPage: DialogsPageType
-    friendsPage: FriendsPageType
-    sidebar: SidebarType
-}
-
-let state: StateType = {
+let store = {
+    _state: {
     profilePage: {
         posts: [
             {id: 1, message: 'Hello!', likeCount: 5},
@@ -116,27 +59,84 @@ let state: StateType = {
             {id: 3, name: 'Петя', avatar: 'https://estnn.com/wp-content/uploads/2018/08/CSGO-150x150.png'},
         ]
     }
+},
+    _callSubscriber (state: StateType) {
+        console.log('State changed')
+    },
+    getState() {
+        return this._state;
+    },
+    addPost() {
+        let newPost = {
+            id: 6,
+            message: this._state.profilePage.newPostText,
+            likeCount: 0
+        };
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = ''
+        this._callSubscriber(this._state);
+    },
+    updateNewPostText(newText: string) {
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state);
+    },
+    subscribe(observer: any) {
+        this._callSubscriber = observer;
+    }
 }
 
-export const addPost = (): void => {
-    let newPost = {
-        id: 6,
-        message: state.profilePage.newPostText,
-        likeCount: 0
-    };
-    state.profilePage.posts.push(newPost);
-    state.profilePage.newPostText = ''
-    rerenderEntireTree(state);
+export type SidebarType = {
+    sidebarFriends: Array<SidebarFriendsType>
 }
 
-export const updateNewPostText = (newText: string): void => {
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
+export type SidebarFriendsType = {
+    id: number
+    avatar: string
+    name: string
 }
 
-export const subscribe = (observer: any) => {
-    rerenderEntireTree = observer;
+export type FriendsPageType = {
+    friendsData: Array<FriendsDataType>
 }
 
-export default state;
+export type FriendsDataType = {
+    id: number
+    name: string
+    avatar: string
+}
 
+export type DialogsPageType = {
+    messagesData: Array<MessagesDataType>
+    dialogsData: Array<DialogsDataType>
+}
+
+export type MessagesDataType = {
+    id: number
+    message: string
+}
+
+export type DialogsDataType = {
+    id: number
+    name: string
+    avatar: string
+}
+
+export type PostType = {
+    id: number
+    message: string
+    likeCount: number
+}
+
+export type ProfilePageType = {
+    posts: Array<PostType>
+    newPostText: string
+}
+
+export type StateType = {
+    profilePage: ProfilePageType
+    dialogsPage: DialogsPageType
+    friendsPage: FriendsPageType
+    sidebar: SidebarType
+}
+
+export default store;
