@@ -1,20 +1,39 @@
 import React from "react";
-import classes from './Sidebar.module.css'
+import {NavLink} from "react-router-dom";
+import style from './Sidebar.module.css'
+import DialogItem from "../Dialogs/DialogItem/DialogItem";
+import { SidebarType} from "../../redux/state";
 
-const Sidebar = () => {
+type PropsType = {
+    sidebar: SidebarType
+}
+
+const Sidebar:React.FC<PropsType> = (props) => {
     return (
-        <div className={classes.sidebar}>
-            <div className={`${classes.item} ${classes.active}`}>
-                <a href="">Profile</a>
+        <div className={style.sidebar}>
+            <div className={`${style.item} ${style.active}`}>
+                <NavLink to="/profile" activeClassName={style.activeLink}>Profile</NavLink>
             </div>
-            <div className={classes.item}>
-                <a href="">Messages</a>
+            <div className={style.item}>
+                <NavLink to="/dialogs" activeClassName={style.activeLink}>Dialogs</NavLink>
             </div>
-            <div className={classes.item}>
-                <a href="">News</a>
+            <div className={style.item}>
+                <NavLink to="/news" activeClassName={style.activeLink}>News</NavLink>
             </div>
-            <div className={classes.item}>
-                <a href="">Music</a>
+            <div className={style.item}>
+                <NavLink to="/music" activeClassName={style.activeLink}>Music</NavLink>
+            </div>
+            <div className={style.item}>
+                <NavLink to="/settings" activeClassName={style.activeLink}>Settings</NavLink>
+            </div>
+            <div className={style.item}>
+                <NavLink to="/friends" activeClassName={style.activeLink}>Friends</NavLink>
+                <div className={style.friendsBlock}>
+                    {/*let friendsBlockElements = props.state.friendsData.map((d: { name: string; id: number; avatar: string}) => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);*/}
+                    <div><img src={props.sidebar.sidebarFriends[0].avatar}/> {props.sidebar.sidebarFriends[0].name}</div>
+                    <div><img src={props.sidebar.sidebarFriends[1].avatar}/> {props.sidebar.sidebarFriends[1].name}</div>
+                    <div><img src={props.sidebar.sidebarFriends[2].avatar}/> {props.sidebar.sidebarFriends[2].name}</div>
+                </div>
             </div>
         </div>
     )

@@ -1,12 +1,29 @@
 .sidebar {
     grid-area: sidebar;
-    background-color: blanchedalmond;
+    background-color: cornflowerblue;
+    padding: 10px;
 }
 
-.item {
+.item a {
     color: white;
+    text-decoration: none;
 }
 
-.item.active {
+.item a.activeLink {
     color: gold;
+}
+
+.friendsBlock {
+    margin:10px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    padding:5px;
+    background-color: #696bdd;
+    box-shadow: 0 0 1em black;
+}
+
+.friendsBlock img {
+    width: 40px;
+    border-radius: 50%;
 }
