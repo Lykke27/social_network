@@ -5,9 +5,10 @@ import Post from "./Post/Post";
 
 type PropsMyPostsType = {
     posts: Array<PostType>
-    addPost: () => void
+    // addPost: () => void
     newPostText: string
-    updateNewPostText: (newText: string) => void
+    // updateNewPostText: (newText: string) => void
+    dispatch: any
 }
 
 const MyPosts = (props: PropsMyPostsType) => {
@@ -19,8 +20,7 @@ const MyPosts = (props: PropsMyPostsType) => {
     let addPost = () => {
         if (newPostElement.current) {
             // let text = newPostElement.current.value
-            props.addPost()
-
+            props.dispatch({type: 'ADD-POST'})
             // newPostElement.current.value = '';
         }
     }
@@ -28,7 +28,8 @@ const MyPosts = (props: PropsMyPostsType) => {
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-            props.updateNewPostText(text);
+            let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+            props.dispatch(action); //не забываем про newText!!
         }
     }
 
