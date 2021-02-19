@@ -18,27 +18,27 @@ type PropsType = {
     dispatch: any
 }
 
-const App:React.FC<PropsType> = (props) => {
+const App: React.FC<PropsType> = (props) => {
 
     return (
-            <div className='app-wrapper'>
-                <Header/>
-                <Sidebar sidebar={props.state.sidebar}/>
-                <div className='app-wrapper-content'>
-                    <Route path='/profile'
-                           render={() => <Profile profilePage={props.state.profilePage}
-                                                  dispatch={props.dispatch}
-                                                  newPostText={props.newPostText}
-                                                 />
-                           }/>
-                    <Route path='/dialogs'
-                           render={() => <Dialogs dialogsPage={props.state.dialogsPage}/>}/>
-                    <Route path='/News' component={News}/>
-                    <Route path='/Music' component={Music}/>
-                    <Route path='/Settings' component={Settings}/>
-                    <Route path='/Friends' component={Friends}/>
-                </div>
+        <div className='app-wrapper'>
+            <Header/>
+            <Sidebar sidebar={props.state.sidebar}/>
+            <div className='app-wrapper-content'>
+                <Route path='/profile'
+                       render={() => <Profile profilePage={props.state.profilePage}
+                                              dispatch={props.dispatch}
+                                              newPostText={props.newPostText}
+                       />
+                       }/>
+                <Route path='/dialogs'
+                       render={() => <Dialogs dialogsPage={props.state.dialogsPage}/>}/>
+                <Route path='/News' component={News}/>
+                <Route path='/Music' component={Music}/>
+                <Route path='/Settings' component={Settings}/>
+                <Route path='/Friends' component={Friends}/>
             </div>
+        </div>
     );
 }
 
