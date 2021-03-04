@@ -1,5 +1,5 @@
 import React, {RefObject} from "react";
-import state, {PostType} from "../../../redux/state";
+import state, {addPostActionCreator, PostType, updateNewPostTextActionCreator} from "../../../redux/state";
 import style from './MyPosts.module.css';
 import Post from "./Post/Post";
 
@@ -11,6 +11,7 @@ type PropsMyPostsType = {
     dispatch: any
 }
 
+
 const MyPosts = (props: PropsMyPostsType) => {
     let postsElements =
         props.posts.map((p) => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>);
@@ -20,7 +21,7 @@ const MyPosts = (props: PropsMyPostsType) => {
     let addPost = () => {
         if (newPostElement.current) {
             // let text = newPostElement.current.value
-            props.dispatch({type: 'ADD-POST'})
+            props.dispatch(addPostActionCreator())
             // newPostElement.current.value = '';
         }
     }
@@ -28,7 +29,7 @@ const MyPosts = (props: PropsMyPostsType) => {
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-            let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+            let action = updateNewPostTextActionCreator(text);
             props.dispatch(action); //не забываем про newText!!
         }
     }
