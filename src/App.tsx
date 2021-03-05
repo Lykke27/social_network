@@ -10,6 +10,7 @@ import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import {Route} from "react-router-dom";
 import {StateType} from "./redux/state";
+import MyPosts from "./components/Profile/MyPosts/MyPosts";
 
 
 type PropsType = {
@@ -32,7 +33,8 @@ const App: React.FC<PropsType> = (props) => {
                        />
                        }/>
                 <Route path='/dialogs'
-                       render={() => <Dialogs dialogsPage={props.state.dialogsPage}/>}/>
+                       render={() => <Dialogs dialogsPage={props.state.dialogsPage}
+                                              dispatch={props.dispatch}/>}/>
                 <Route path='/News' component={News}/>
                 <Route path='/Music' component={Music}/>
                 <Route path='/Settings' component={Settings}/>
