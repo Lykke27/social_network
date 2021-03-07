@@ -1,14 +1,15 @@
 import React, {RefObject} from "react";
-import state, {addPostActionCreator, PostType, updateNewPostTextActionCreator} from "../../../redux/state";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 import style from './MyPosts.module.css';
 import Post from "./Post/Post";
+import {PostType} from "../../../redux/state";
 
 type PropsMyPostsType = {
     posts: Array<PostType>
-    // addPost: () => void
     newPostText: string
-    // updateNewPostText: (newText: string) => void
     dispatch: any
+    // addPost: () => void
+    // updateNewPostText: (newText: string) => void
 }
 
 

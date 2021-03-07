@@ -5,15 +5,19 @@
 
 .dialogItems {
     padding: 10px;
-
 }
 
 .dialogItems .active {
-    color:red;
+    color: red;
 }
 
-.dialog img{
-    width: 30px;
+.dialog div {
+    /*background-color: red;*/
+    padding-bottom: 5px;
+}
+
+.dialog img {
+    width: 40px;
     border-radius: 50%;
 }
 
@@ -22,5 +26,5 @@
 }
 
 .message {
-
+    padding-bottom: 5px;
 }
