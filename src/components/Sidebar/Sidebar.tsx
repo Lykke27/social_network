@@ -2,7 +2,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import style from './Sidebar.module.css'
 import DialogItem from "../Dialogs/DialogItem/DialogItem";
-import { SidebarType} from "../../redux/state";
+import { SidebarType} from "../../redux/store";
 
 type PropsType = {
     sidebar: SidebarType

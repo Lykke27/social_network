@@ -9,12 +9,12 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import {Route} from "react-router-dom";
-import {StateType} from "./redux/state";
+import {StateType} from "./redux/store";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
 
 
 type PropsType = {
-    state: StateType
+    store: StateType
     newPostText: string
     dispatch: any
 }
@@ -24,16 +24,16 @@ const App: React.FC<PropsType> = (props) => {
     return (
         <div className='app-wrapper'>
             <Header/>
-            <Sidebar sidebar={props.state.sidebar}/>
+            <Sidebar sidebar={props.store.sidebar}/>
             <div className='app-wrapper-content'>
                 <Route path='/profile'
-                       render={() => <Profile profilePage={props.state.profilePage}
+                       render={() => <Profile profilePage={props.store.profilePage}
                                               dispatch={props.dispatch}
                                               newPostText={props.newPostText}
                        />
                        }/>
                 <Route path='/dialogs'
-                       render={() => <Dialogs dialogsPage={props.state.dialogsPage}
+                       render={() => <Dialogs dialogsPage={props.store.dialogsPage}
                                               dispatch={props.dispatch}/>}/>
                 <Route path='/News' component={News}/>
                 <Route path='/Music' component={Music}/>
