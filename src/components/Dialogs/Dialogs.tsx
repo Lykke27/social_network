@@ -3,11 +3,11 @@ import style from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
-import {DialogsDataType, MessagesDataType} from "../../redux/store";
+import {ActionsTypes, DialogsDataType, MessagesDataType} from "../../redux/store";
 
 type PropsType = {
     dialogsPage: DialogsPageType
-    dispatch: any
+    dispatch: (action: any) => void
 }
 
 type DialogsPageType = {
@@ -18,7 +18,8 @@ type DialogsPageType = {
 
 const Dialogs: React.FC<PropsType> = (props) => {
 
-    let dialogsElements = props.dialogsPage.dialogsData.map((d) => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);
+    let dialogsElements = props.dialogsPage.dialogsData.map((d) => <DialogItem name={d.name} id={d.id}
+                                                                               avatar={d.avatar}/>);
     let messagesElements = props.dialogsPage.messagesData.map((m) => <Message id={m.id} message={m.message}/>)
     let newMessageBody = props.dialogsPage.newMessageBody;
     let onSendMessageClick = () => {

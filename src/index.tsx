@@ -12,7 +12,6 @@ let rerenderEntireTree = (state: StateType) => {
         <React.StrictMode>
             <BrowserRouter>
                 <App store={state} dispatch={store.dispatch.bind(store)}
-                     newPostText={state.profilePage.newPostText}
                 />
             </BrowserRouter>
         </React.StrictMode>,
@@ -31,4 +30,3 @@ store.subscribe(() => {
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
 reportWebVitals();
-

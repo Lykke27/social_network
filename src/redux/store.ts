@@ -3,7 +3,15 @@ import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import friendsReducer from "./friends-reducer";
 
-let store = {
+export type StoreType = {
+    _state: StateType,
+    _callSubscriber: (_state: StateType) => void
+    subscribe: (observer: () => void) => void
+    getState: () => StateType
+    dispatch: (action: ActionsTypes) => void
+}
+
+let store: StoreType = {
     _state: {
         profilePage: {
             posts: [
@@ -78,19 +86,18 @@ let store = {
             ]
         },
     },
-    _callSubscriber(state: StateType) {
+    _callSubscriber() {
         console.log('State changed')
     },
 
     getState() {
         return this._state;
     },
-    subscribe(observer: any) {
+    subscribe(observer) {
         this._callSubscriber = observer;
     },
 
-    dispatch(action: any) { // {type: 'ADD-POST'}
-
+    dispatch(action: ActionsTypes) {
         this._state.profilePage = profileReducer(this._state.profilePage, action) //преобразовываем профайл пейдж
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
@@ -99,6 +106,29 @@ let store = {
         this._callSubscriber(this._state); //уведомляем подписчика
 
     }
+}
+
+export type ActionsTypes =
+    AddPostActionType
+    | UpdateNewPostTextActionType
+    | UpdateNewMessageBodyActionType
+    | SendMessageActionType
+
+export type AddPostActionType = {
+    type: "ADD_POST"
+    newPostText: string
+}
+export type UpdateNewPostTextActionType = {
+    type: "UPDATE_NEW_POST_TEXT"
+    newText: string
+}
+export type UpdateNewMessageBodyActionType = {
+    type: "UPDATE_NEW_MESSAGE_BODY"
+    body: string
+}
+export type SendMessageActionType = {
+    type: "SEND_MESSAGE"
+
 }
 
 export type SidebarType = {
@@ -146,7 +176,5 @@ export type StateType = {
     friendsPage: FriendsPageType
     sidebar: SidebarType
 }
-
-
 
 export default store;

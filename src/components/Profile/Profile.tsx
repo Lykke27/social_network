@@ -6,7 +6,7 @@ import {ProfilePageType} from "../../redux/store";
 
 export type PropsProfileType = {
     profilePage: ProfilePageType
-    dispatch: any
+    dispatch: (action:any)=> void
     newPostText: string
 }
 
