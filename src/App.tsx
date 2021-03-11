@@ -13,7 +13,7 @@ import {StateType} from "./redux/store";
 
 
 type PropsType = {
-    store: StateType
+    _state: StateType
     dispatch: any
 }
 
@@ -21,18 +21,15 @@ const App: React.FC<PropsType> = (props) => {
     return (
         <div className='app-wrapper'>
             <Header/>
-            <Sidebar sidebar={props.store.sidebar}/>
+            <Sidebar sidebar={props._state.sidebar}/>
             <div className='app-wrapper-content'>
                 <Route path='/profile'
-                       render={() => <Profile profilePage={props.store.profilePage}
+                       render={() => <Profile profilePage={props._state.profilePage}
                                               dispatch={props.dispatch}
-                                              newPostText={props.store.profilePage.newPostText}
-                       />
-                       }/>
+                                              newPostText={props._state.profilePage.newPostText}/>}/>
                 <Route path='/dialogs'
-                       render={() => <Dialogs dialogsPage={props.store.dialogsPage}
-                                              dispatch={props.dispatch}/>
-                       }/>
+                       render={() => <Dialogs dialogsPage={props._state.dialogsPage}
+                                              dispatch={props.dispatch}/>}/>
                 <Route path='/News' component={News}/>
                 <Route path='/Music' component={Music}/>
                 <Route path='/Settings' component={Settings}/>

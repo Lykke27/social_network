@@ -21,7 +21,7 @@ let store: StoreType = {
                 {id: 4, message: "It's my first post", likeCount: 17},
                 {id: 5, message: "It's my first post", likeCount: 0},
             ],
-            newPostText: "HelloBoi"
+            newPostText: ""
         },
         dialogsPage: {
             messagesData: [

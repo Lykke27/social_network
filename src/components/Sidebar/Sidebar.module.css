@@ -2,11 +2,18 @@
     grid-area: sidebar;
     background-color: cornflowerblue;
     padding: 10px;
+    display: flex;
+}
+
+.item {
+    margin: 10px;
+    display: flex;
 }
 
 .item a {
     color: white;
     text-decoration: none;
+
 }
 
 .item a.activeLink {
@@ -14,16 +21,21 @@
 }
 
 .friendsBlock {
-    margin:10px;
+    height: 50px;
+    /*background-color: red;*/
     display: flex;
     text-align: center;
     justify-content: space-around;
-    padding:5px;
-    background-color: #696bdd;
-    box-shadow: 0 0 1em black;
+    align-content: center;
 }
 
-.friendsBlock img {
-    width: 40px;
+.friendItem {
+    display: flex;
+    flex-direction: column;
+    margin: auto 10px;
+}
+
+.friendItem img {
+    width: 30px;
     border-radius: 50%;
 }

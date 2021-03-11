@@ -20,18 +20,18 @@ const MyPosts = (props: PropsMyPostsType) => {
     let newPostElement: RefObject<HTMLTextAreaElement> = React.createRef();
 
     let addPost = () => {
+        // props.addPost()
         if (newPostElement.current) {
-            // let text = newPostElement.current.value
             props.dispatch(addPostActionCreator())
-            // newPostElement.current.value = '';
         }
     }
 
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-            let action = updateNewPostTextActionCreator(text);
-            props.dispatch(action); //не забываем про newText!!
+            // props.updateNewPostText(text)
+                let action = updateNewPostTextActionCreator(text);
+                props.dispatch(action); //не забываем про newText!!
         }
     }
 
