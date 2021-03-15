@@ -8,7 +8,7 @@ export type StoreType = {
     _callSubscriber: (_state: StateType) => void
     subscribe: (observer: () => void) => void
     getState: () => StateType
-    dispatch: (action: ActionsTypes) => void
+    dispatch: (action: any) => void
 }
 
 let store: StoreType = {
@@ -116,7 +116,6 @@ export type ActionsTypes =
 
 export type AddPostActionType = {
     type: "ADD_POST"
-    newPostText: string
 }
 export type UpdateNewPostTextActionType = {
     type: "UPDATE_NEW_POST_TEXT"

@@ -11,6 +11,28 @@ let reducers = combineReducers({
     sidebar: sidebarReducer,
 });
 
+export type ActionsTypes =
+    AddPostActionType
+    | UpdateNewPostTextActionType
+    | UpdateNewMessageBodyActionType
+    | SendMessageActionType
+
+export type AddPostActionType = {
+    type: "ADD_POST"
+}
+export type UpdateNewPostTextActionType = {
+    type: "UPDATE_NEW_POST_TEXT"
+    newText: string
+}
+export type UpdateNewMessageBodyActionType = {
+    type: "UPDATE_NEW_MESSAGE_BODY"
+    body: string
+}
+export type SendMessageActionType = {
+    type: "SEND_MESSAGE"
+
+}
+
 let store = createStore(reducers);
 
 export default store;
