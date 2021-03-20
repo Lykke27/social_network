@@ -1,41 +1,51 @@
 import {ActionsTypes} from "./redux-store";
-import {ProfilePageType} from "./store";
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 
-type InitialStateType = typeof initialState;
-
 let initialState = {
-        posts: [
-            {id: 1, message: 'Hello!', likeCount: 5},
-            {id: 2, message: "It's my first post", likeCount: 15},
-            {id: 3, message: "It's my first post", likeCount: 15},
-            {id: 4, message: "It's my first post", likeCount: 17},
-            {id: 5, message: "It's my first post", likeCount: 0},
-        ],
-        newPostText: ""
-    };
+    posts: [
+        {id: 1, message: 'Hello!', likeCount: 5},
+        {id: 2, message: "It's my first post", likeCount: 15},
+        {id: 3, message: "It's my first post", likeCount: 15},
+        {id: 4, message: "It's my first post", likeCount: 17},
+        {id: 5, message: "It's my first post", likeCount: 0},
+    ] as Array<PostType>,
+    newPostText: ""
+};
 
-const profileReducer = (state: ProfilePageType = initialState, action: ActionsTypes):InitialStateType => {
+const profileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
                 id: 6,
                 message: state.newPostText,
                 likeCount: 0
             };
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return state
-
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
-
+            let stateCopy = {...state}
+            stateCopy.posts = [...state.posts]
+            stateCopy.posts.push(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy
+        }
+        case UPDATE_NEW_POST_TEXT: {
+            let stateCopy = {...state}
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        }
         default:
             return state;
     }
+}
+type InitialStateType = typeof initialState;
+type ProfilePageType = {
+    posts: Array<PostType>
+    newPostText: string
+}
+export type PostType = {
+    id: number
+    message: string
+    likeCount: number
 }
 
 export const addPostActionCreator = () => ({type: ADD_POST})

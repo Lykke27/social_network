@@ -4,7 +4,7 @@ import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import friendsReducer from "./friends-reducer";
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     friendsPage: friendsReducer,
@@ -17,6 +17,7 @@ export type ActionsTypes =
     | UpdateNewMessageBodyActionType
     | SendMessageActionType
 
+export type AppStateType= ReturnType<typeof rootReducer> //тип стейта приложения
 export type AddPostActionType = {
     type: "ADD_POST"
 }
@@ -32,6 +33,6 @@ export type SendMessageActionType = {
     type: "SEND_MESSAGE"
 }
 
-let store = createStore(reducers);
+let store = createStore(rootReducer);
 
 export default store;

@@ -1,4 +1,4 @@
-import {FriendsPageType} from "./store";
+import {ActionsTypes} from "./redux-store";
 
 let initialState = {
     friendsData: [
@@ -18,14 +18,23 @@ let initialState = {
             name: 'Катя',
             avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU76yRpDscFUVMSRBNy6mUvRZJg5KxftYE4w&usqp=CAU'
         }
-    ]
+    ] as Array<FriendsDataType>
 };
 
-const friendsReducer = (state: FriendsPageType = initialState, action: any) => {
+const friendsReducer = (state: InitialStateType = initialState, action: ActionsTypes):InitialStateType => {
     switch (action.type) {
         default:
             return state;
     }
+}
+type InitialStateType = typeof initialState
+export type FriendsPageType = {
+    friendsData: Array<FriendsDataType>
+}
+export type FriendsDataType = {
+    id: number
+    name: string
+    avatar: string
 }
 
 export default friendsReducer;

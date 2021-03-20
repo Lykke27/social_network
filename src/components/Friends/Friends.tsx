@@ -1,6 +1,5 @@
 import React from "react";
-import style from './Friends.module.css'
-import {FriendsPageType} from "../../redux/store";
+import {FriendsPageType} from "../../redux/friends-reducer";
 
 const Friends: React.FC<FriendsPageType> = (props) => {
     return (
