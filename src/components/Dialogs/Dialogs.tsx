@@ -7,14 +7,14 @@ import {DialogsPageType, StoreType} from "../../redux/store";
 
 type DialogsPropsType = {
     dialogsPage: DialogsPageType
-    updateNewMessageBodyCreator:(body:string)=>void
-    sendMessage:() =>void
+    updateNewMessageBodyCreator: (body: string) => void
+    sendMessage: () => void
 }
 
 const Dialogs: React.FC<DialogsPropsType> = (props) => {
     let state = props.dialogsPage
     let dialogsElements = state.dialogsData.map((d) => <DialogItem name={d.name} id={d.id}
-                                                                               avatar={d.avatar}/>);
+                                                                   avatar={d.avatar}/>);
     let messagesElements = state.messagesData.map((m) => <Message id={m.id} message={m.message}/>)
     let newMessageBody = state.newMessageBody;
 

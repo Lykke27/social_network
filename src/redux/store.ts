@@ -89,7 +89,6 @@ let store: StoreType = {
     _callSubscriber() {
         console.log('State changed')
     },
-
     getState() {
         return this._state;
     },
@@ -102,7 +101,6 @@ let store: StoreType = {
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
         this._state.friendsPage = friendsReducer(this._state.friendsPage, action)
-
         this._callSubscriber(this._state); //уведомляем подписчика
 
     }

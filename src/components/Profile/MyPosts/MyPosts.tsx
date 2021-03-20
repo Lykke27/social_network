@@ -6,7 +6,7 @@ import {ActionsTypes, PostType} from "../../../redux/store";
 type PropsMyPostsType = {
     posts: Array<PostType>
     newPostText: string
-    dispatch: (action: ActionsTypes) => void
+    // dispatch: (action: ActionsTypes) => void
     addPost: () => void
     updateNewPostText: (newText: string) => void
 }

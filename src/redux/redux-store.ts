@@ -30,7 +30,6 @@ export type UpdateNewMessageBodyActionType = {
 }
 export type SendMessageActionType = {
     type: "SEND_MESSAGE"
-
 }
 
 let store = createStore(reducers);
