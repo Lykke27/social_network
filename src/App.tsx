@@ -10,12 +10,7 @@ import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Sidebar from "./components/Sidebar/Sidebar";
 
-
-type PropsType = {
-//     store: StoreType
-}
-
-const App = (props: PropsType) => {
+const App = () => {
     return (
         <div className='app-wrapper'>
             <Header/>

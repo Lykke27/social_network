@@ -4,11 +4,11 @@ import style from './Sidebar.module.css'
 import DialogItem from "../Dialogs/DialogItem/DialogItem";
 import {SidebarType} from "../../redux/store";
 
-type PropsType = {
-    // sidebar: SidebarType
-}
+// type PropsType = {
+//     sidebar: SidebarType
+// }
 
-const Sidebar: React.FC<PropsType> = (props) => {
+const Sidebar= () => {
     return (
         <div className={style.sidebar}>
             <div className={`${style.item} ${style.active}`}>
@@ -38,7 +38,6 @@ const Sidebar: React.FC<PropsType> = (props) => {
             {/*    <div className={style.friendItem}><img*/}
             {/*        src={props.sidebar.sidebarFriends[2].avatar}/> {props.sidebar.sidebarFriends[2].name}</div>*/}
             {/*</div>*/}
-
         </div>
     )
 }
