@@ -1,4 +1,5 @@
 import {SidebarType} from "./store";
+import {ActionsTypes} from "./redux-store";
 
 let initialState = {
     sidebarFriends: [
@@ -16,7 +17,8 @@ let initialState = {
     ]
 };
 
-const sidebarReducer = (state: SidebarType = initialState, action: any) => {
+
+const sidebarReducer = (state: SidebarType = initialState, action: ActionsTypes) => {
     switch (action.type) {
         default: return state;
     }

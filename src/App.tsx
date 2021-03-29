@@ -9,6 +9,7 @@ import Friends from "./components/Friends/Friends";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Sidebar from "./components/Sidebar/Sidebar";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = () => {
     return (
@@ -24,6 +25,8 @@ const App = () => {
                 <Route path='/Music' component={Music}/>
                 <Route path='/Settings' component={Settings}/>
                 <Route path='/Friends' component={Friends}/>
+                <Route path='/Users'
+                       render={() => <UsersContainer/>}/>
             </div>
         </div>
     );

@@ -29,17 +29,23 @@ const Sidebar= () => {
             <div className={style.item}>
                 <NavLink to="/friends" activeClassName={style.activeLink}>Friends</NavLink>
             </div>
-            {/*<div className={style.friendsBlock}>*/}
-            {/*    /!*let friendsBlockElements = props.state.friendsData.map((d: { name: string; id: number; avatar: string}) => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);*!/*/}
-            {/*    <div className={style.friendItem}><img*/}
-            {/*        src={props.sidebar.sidebarFriends[0].avatar}/> {props.sidebar.sidebarFriends[0].name}</div>*/}
-            {/*    <div className={style.friendItem}><img*/}
-            {/*        src={props.sidebar.sidebarFriends[1].avatar}/> {props.sidebar.sidebarFriends[1].name}</div>*/}
-            {/*    <div className={style.friendItem}><img*/}
-            {/*        src={props.sidebar.sidebarFriends[2].avatar}/> {props.sidebar.sidebarFriends[2].name}</div>*/}
-            {/*</div>*/}
+            <div className={style.item}>
+                <NavLink to="/users" activeClassName={style.activeLink}>Find Users</NavLink>
+            </div>
+
         </div>
     )
 }
 
 export default Sidebar;
+
+//отображение друзей в навбаре
+{/*<div className={style.friendsBlock}>*/}
+{/*    /!*let friendsBlockElements = props.state.friendsData.map((d: { name: string; id: number; avatar: string}) => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);*!/*/}
+{/*    <div className={style.friendItem}><img*/}
+{/*        src={props.sidebar.sidebarFriends[0].avatar}/> {props.sidebar.sidebarFriends[0].name}</div>*/}
+{/*    <div className={style.friendItem}><img*/}
+{/*        src={props.sidebar.sidebarFriends[1].avatar}/> {props.sidebar.sidebarFriends[1].name}</div>*/}
+{/*    <div className={style.friendItem}><img*/}
+{/*        src={props.sidebar.sidebarFriends[2].avatar}/> {props.sidebar.sidebarFriends[2].name}</div>*/}
+{/*</div>*/}
