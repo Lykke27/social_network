@@ -42,27 +42,31 @@ const Users = (props: UsersPropsType) => {
     }
 
     return (
-        <div>
+        <div className={styles.users}>
             {props.users.map(user =>
-                    <div key={Math.random()}>
-                        <span>
-                            <div><img className={styles.userAvatar} src={user.photoUrl} alt="profile picture"/></div>
-                            <div>
+                    <div key={Math.random()} className={styles.userInfo}>
+                        <div>
+                            <div className={styles.avaAndButtonBlock}>
+                            <img className={styles.userAvatar} src={user.photoUrl} alt="profile picture"/>
                                 {user.followed
                                     ? <button onClick={() => {props.unfollow(user.id)}}>Unfollow</button>
                                     : <button onClick={() => {props.follow(user.id)}}>Follow</button>}
                             </div>
-                        </span>
-                        <span>
-                           <span>
-                               <div>{user.fullName}</div>
-                               <div>{user.status}</div>
-                           </span>
-                            <span>
+                        </div>
+
+                        <div className={styles.userContent}>
+
+                           <div className={styles.userNameAndStatus}>
+                               <div className={styles.userName}>{user.fullName}</div>
+                               <div className={styles.userStatus}>{user.status}</div>
+                           </div>
+
+                            <div>
                                 <div>{user.location.country}</div>
                                 <div>{user.location.city}</div>
-                            </span>
-                        </span>
+                            </div>
+
+                        </div>
                     </div>
                     )
             }
