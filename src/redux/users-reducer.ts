@@ -11,21 +11,21 @@ let initialState = {
 const usersReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case FOLLOW:
-           return {
-               ...state,
-               users: state.users.map(user => {
-                   if(user.id === action.userID) {
+            return {
+                ...state,
+                users: state.users.map(user => {
+                    if (user.id === action.userID) {
                         return {...user, followed: true}
-                   }
-                 return user
-               })
-           }
+                    }
+                    return user
+                })
+            }
 
         case UNFOLLOW:
             return {
                 ...state,
                 users: state.users.map(user => {
-                    if(user.id === action.userID) {
+                    if (user.id === action.userID) {
                         return {...user, followed: false}
                     }
                     return user
@@ -35,7 +35,8 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionsTyp
         case SET_USERS: {
             return {
                 ...state,
-                users:[...action.users]}
+                users: [...action.users]
+            }
         }
 
         default:
@@ -48,7 +49,8 @@ type InitialStateType = typeof initialState;
 type UsersPageType = {
     users: Array<UserType>
 }
-// type UserType = typeof Users
+
+// type UserType = typeof Users можно попробовать так
 
 export type UserType = {
     id: number
@@ -63,8 +65,8 @@ export type UserType = {
         }
 }
 
-export const followAC = (userID:number):FollowActionType => ({type: FOLLOW, userID})
-export const unfollowAC = (userID:number):UnfollowActionType => ({type: UNFOLLOW, userID})
-export const setUsersAC = (users:Array<UserType>):SetUsersActionType => ({type: SET_USERS, users})
+export const followAC = (userID: number): FollowActionType => ({type: FOLLOW, userID})
+export const unfollowAC = (userID: number): UnfollowActionType => ({type: UNFOLLOW, userID})
+export const setUsersAC = (users: Array<UserType>): SetUsersActionType => ({type: SET_USERS, users})
 
 export default usersReducer;

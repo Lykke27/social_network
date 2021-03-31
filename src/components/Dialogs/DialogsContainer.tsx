@@ -5,10 +5,6 @@ import {connect} from "react-redux";
 import {Dispatch} from 'redux';
 import {AppStateType} from "../../redux/redux-store";
 
-// type MapStatePropsType = {
-//     dialogsPage: dialogsReducer
-// }
-
 let mapStateToProps = (state: AppStateType) => {
     return {
         dialogsPage: state.dialogsPage

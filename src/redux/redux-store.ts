@@ -3,7 +3,7 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import friendsReducer from "./friends-reducer";
-import usersReducer, {setUsersAC, UserType} from "./users-reducer";
+import usersReducer, {UserType} from "./users-reducer";
 
 let rootReducer = combineReducers({
     profilePage: profileReducer,
