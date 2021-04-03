@@ -14,7 +14,8 @@ export  type MapDispatchPropsType = {
     // описываем, что возвращает MapDispatchToProps
     follow: (userId: number) => void
     unfollow: (userId: number) => void
-    setUsers: (users: Array<UserType>) => void
+    setUsers: any
+    // (users: Array<UserType>) => void
 }
 
 let mapStateToProps = (state: AppStateType):MapStatePropsType => {

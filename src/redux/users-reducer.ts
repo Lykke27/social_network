@@ -55,9 +55,13 @@ type UsersPageType = {
 export type UserType = {
     id: number
     photoUrl: string
-    fullName: string
+    name: string
     status: string
     followed: boolean
+    photos: {
+        small: string
+        lagre: string
+    }
     location:
         {
             city: string,
