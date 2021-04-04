@@ -18,13 +18,13 @@ export  type MapDispatchPropsType = {
     // (users: Array<UserType>) => void
 }
 
-let mapStateToProps = (state: AppStateType):MapStatePropsType => {
+let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         users: state.usersPage.users
     }
 }
 
-let mapDispatchToProps = (dispatch: Dispatch):MapDispatchPropsType => {
+let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     return {
         follow: (userID: number) => {
             dispatch(followAC(userID))

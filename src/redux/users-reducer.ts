@@ -60,7 +60,7 @@ export type UserType = {
     followed: boolean
     photos: {
         small: string
-        lagre: string
+        large: string
     }
     location:
         {
