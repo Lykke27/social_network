@@ -13,17 +13,17 @@ type GetUsersResponseType = {
     error: string | null
 }
 
-export class Users extends React.Component<UsersPropsType> {
+class Users extends React.Component<UsersPropsType> {
 
     constructor(props: UsersPropsType) {
         super(props);
-        alert("NEW")
-        debugger
+    }
+
+    componentDidMount() {
         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
             this.props.setUsers(response.data.items)
         })
     }
-
 
     render() {
         return <div className={styles.users}>
@@ -63,3 +63,5 @@ export class Users extends React.Component<UsersPropsType> {
         </div>
     }
 }
+
+export default Users;
