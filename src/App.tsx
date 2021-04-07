@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
+import FriendsBlock from "./components/FriendsBlock/FriendsBlock";
 import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -14,7 +14,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 const App = () => {
     return (
         <div className='app-wrapper'>
-            <Header/>
+            <FriendsBlock/>
             <Sidebar/>
             <div className='app-wrapper-content'>
                 <Route path='/profile'

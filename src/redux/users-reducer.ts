@@ -31,7 +31,6 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionsTyp
                     return user
                 })
             }
-
         case UNFOLLOW:
             return {
                 ...state,
@@ -42,22 +41,18 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionsTyp
                     return user
                 })
             }
-
         case SET_USERS: {
             return {
                 ...state,
                 users: [...action.users]
             }
         }
-
         case SET_CURRENT_PAGE: {
             return {...state, currentPage: action.currentPage}
         }
-
         case SET_TOTAL_USERS_COUNT: {
             return {...state, totalUsers: action.totalUsers}
         }
-
         default:
             return state;
     }

@@ -1,0 +1,17 @@
+.friendsBlock {
+    grid-area: friendsBlock;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.friend {
+    background-color: bisque;
+    margin: 5px;
+    padding: 5px;
+}
+.friend img {
+    width: 60px;
+    border-radius: 50%;
+}
