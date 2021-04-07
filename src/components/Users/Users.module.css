@@ -7,7 +7,7 @@
 }
 
 .userInfo {
-    background-color: rgba(32, 163, 186, 0.8);;
+    background-color: rgba(32, 163, 186, 0.8);
     display: flex;
     margin: 10px;
     border-radius: 15px;
@@ -55,4 +55,23 @@
 .userName {
     font-weight: bold;
     font-size: 20px;
+}
+
+.pageNavigation {
+    margin: 10px;
+}
+
+.pageNumber {
+    margin: 10px;
+    padding: 3px;
+    border-bottom: #6495ED 2px solid;
+    cursor: pointer;
+}
+
+.selectedPage {
+    margin: 10px;
+    padding: 3px;
+    border-bottom: black 2px solid;
+    cursor: pointer;
+    font-weight: bold;
 }

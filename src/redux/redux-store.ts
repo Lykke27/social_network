@@ -21,6 +21,8 @@ export type ActionsTypes =
     | FollowActionType
     | UnfollowActionType
     | SetUsersActionType
+    | SetCurrentPageActionType
+    | setTotalUsersCountActionType
 
 
 export type AppStateType = ReturnType<typeof rootReducer> //тип стейта приложения
@@ -49,6 +51,14 @@ export type UnfollowActionType = {
 export type SetUsersActionType = {
     type: "SET_USERS",
     users: Array<UserType>
+}
+export type SetCurrentPageActionType = {
+    type: "SET_CURRENT_PAGE",
+    currentPage: number
+}
+export type setTotalUsersCountActionType = {
+    type: "SET_TOTAL_USERS_COUNT",
+    totalUsers: number
 }
 
 let store = createStore(rootReducer);
