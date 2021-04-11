@@ -1,7 +1,7 @@
 import {
     ActionsTypes,
     FollowActionType,
-    SetCurrentPageActionType,
+    SetCurrentPageActionType, SetIsFetchingActionType,
     SetUsersActionType,
     UnfollowActionType
 } from "./redux-store";
@@ -11,12 +11,14 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 let initialState = {
     users: [] as Array<UserType>,
     pageSize: 5,
     totalUsers: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: true
 };
 
 const usersReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
@@ -53,6 +55,9 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionsTyp
         case SET_TOTAL_USERS_COUNT: {
             return {...state, totalUsers: action.totalUsers}
         }
+        case TOGGLE_IS_FETCHING: {
+            return {...state, isFetching: action.isFetching}
+        }
         default:
             return state;
     }
@@ -65,6 +70,7 @@ export type UsersPageType = {
     pageSize: number,
     totalUsers: number,
     currentPage: number
+    isFetching: boolean
 }
 
 // type UserType = typeof Users можно попробовать так
@@ -92,8 +98,11 @@ export const setUsersAC = (users: Array<UserType>): SetUsersActionType => ({type
 export const setCurrentPageAC = (currentPage: number): SetCurrentPageActionType => ({
     type: SET_CURRENT_PAGE, currentPage
 })
-export const setTotalUsersCountAC=(totalUsers:number) => ({
+export const setTotalUsersCountAC = (totalUsers: number) => ({
     type: SET_TOTAL_USERS_COUNT, totalUsers
+})
+export const setIsFetchingAC = (isFetching: boolean): SetIsFetchingActionType => ({
+    type: TOGGLE_IS_FETCHING, isFetching
 })
 
 export default usersReducer;

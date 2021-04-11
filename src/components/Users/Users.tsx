@@ -25,7 +25,8 @@ let Users = (props: PropsType) => {
         <div className={styles.pageNavigation}>
             {pages.slice(0, 15).map(page => {
                 return <span className={props.currentPage === page ? styles.selectedPage : styles.pageNumber}
-                             onClick={(e) => props.onPageChanging(page)}>{page}</span>
+                             onClick={(e) =>
+                                 props.onPageChanging(page)}>{page}</span>
             })}
         </div>
         {props.users.map(user =>

@@ -23,6 +23,7 @@ export type ActionsTypes =
     | SetUsersActionType
     | SetCurrentPageActionType
     | setTotalUsersCountActionType
+    | SetIsFetchingActionType
 
 
 export type AppStateType = ReturnType<typeof rootReducer> //тип стейта приложения
@@ -59,6 +60,10 @@ export type SetCurrentPageActionType = {
 export type setTotalUsersCountActionType = {
     type: "SET_TOTAL_USERS_COUNT",
     totalUsers: number
+}
+export type SetIsFetchingActionType = {
+    type: "TOGGLE_IS_FETCHING",
+    isFetching: boolean
 }
 
 let store = createStore(rootReducer);
