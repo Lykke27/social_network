@@ -92,16 +92,16 @@ export type UserType = {
         }
 }
 
-export const followAC = (userID: number): FollowActionType => ({type: FOLLOW, userID})
-export const unfollowAC = (userID: number): UnfollowActionType => ({type: UNFOLLOW, userID})
-export const setUsersAC = (users: Array<UserType>): SetUsersActionType => ({type: SET_USERS, users})
-export const setCurrentPageAC = (currentPage: number): SetCurrentPageActionType => ({
+export const follow = (userID: number): FollowActionType => ({type: FOLLOW, userID})
+export const unfollow = (userID: number): UnfollowActionType => ({type: UNFOLLOW, userID})
+export const setUsers = (users: Array<UserType>): SetUsersActionType => ({type: SET_USERS, users})
+export const setCurrentPage = (currentPage: number): SetCurrentPageActionType => ({
     type: SET_CURRENT_PAGE, currentPage
 })
-export const setTotalUsersCountAC = (totalUsers: number) => ({
+export const setTotalUsersCount = (totalUsers: number) => ({
     type: SET_TOTAL_USERS_COUNT, totalUsers
 })
-export const setIsFetchingAC = (isFetching: boolean): SetIsFetchingActionType => ({
+export const setIsFetching = (isFetching: boolean): SetIsFetchingActionType => ({
     type: TOGGLE_IS_FETCHING, isFetching
 })
 
