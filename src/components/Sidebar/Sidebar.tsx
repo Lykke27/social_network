@@ -1,12 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import style from './Sidebar.module.css'
-import DialogItem from "../Dialogs/DialogItem/DialogItem";
-import {SidebarType} from "../../redux/store";
-
-// type PropsType = {
-//     sidebar: SidebarType
-// }
 
 const Sidebar= () => {
     return (
@@ -37,14 +31,3 @@ const Sidebar= () => {
 }
 
 export default Sidebar;
-
-//отображение друзей в навбаре
-{/*<div className={style.friendsBlock}>*/}
-{/*    /!*let friendsBlockElements = props.state.friendsData.map((d: { name: string; id: number; avatar: string}) => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);*!/*/}
-{/*    <div className={style.friendItem}><img*/}
-{/*        src={props.sidebar.sidebarFriends[0].avatar}/> {props.sidebar.sidebarFriends[0].name}</div>*/}
-{/*    <div className={style.friendItem}><img*/}
-{/*        src={props.sidebar.sidebarFriends[1].avatar}/> {props.sidebar.sidebarFriends[1].name}</div>*/}
-{/*    <div className={style.friendItem}><img*/}
-{/*        src={props.sidebar.sidebarFriends[2].avatar}/> {props.sidebar.sidebarFriends[2].name}</div>*/}
-{/*</div>*/}

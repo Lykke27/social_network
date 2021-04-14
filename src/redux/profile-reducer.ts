@@ -38,19 +38,21 @@ const profileReducer = (state: InitialStateType = initialState, action: ActionsT
             return state;
     }
 }
-type InitialStateType = typeof initialState;
-type ProfilePageType = {
+export type InitialStateType = typeof initialState;
+
+export type ProfilePageType = {
     posts: Array<PostType>
     newPostText: string
 }
+
 export type PostType = {
     id: number
     message: string
     likeCount: number
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text: string) => ({
+export const addPost = () => ({type: ADD_POST})
+export const updateNewPostText = (text: string) => ({
     type: UPDATE_NEW_POST_TEXT,
     newText: text
 })

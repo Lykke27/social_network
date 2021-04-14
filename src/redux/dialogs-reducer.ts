@@ -12,6 +12,11 @@ export type DialogsDataType = {
     name: string
     avatar: string
 }
+export type DialogsPageType = {
+    messagesData: Array<MessagesDataType>
+    dialogsData: Array<DialogsDataType>
+    newMessageBody: string
+}
 
 let initialState = {
     messagesData: [
@@ -65,12 +70,12 @@ const dialogsReducer = (state: InitialStateType = initialState, action: ActionsT
 
 export type InitialStateType = typeof initialState
 
-export const sendMessageActionCreator = () => ({
+export const sendMessage = () => ({
     type: SEND_MESSAGE
 })
-export const updateNewMessageBodyActionCreator = (body: string) => ({
+export const updateNewMessageBody = (body: string) => ({
     type: UPDATE_NEW_MESSAGE_BODY, body: body
 })
 
-
 export default dialogsReducer;
+

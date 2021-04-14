@@ -3,7 +3,6 @@ import {NavLink} from "react-router-dom";
 import React from "react";
 import {DialogsDataType} from "../../../redux/dialogs-reducer";
 
-
 const DialogItem: React.FC<DialogsDataType> = (props) => {
     return (
         <div className={style.dialog + ' ' + style.active}>
