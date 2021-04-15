@@ -1,7 +1,13 @@
 import React from "react";
 import style from './ProfileInfo.module.css'
+import {UserProfileType} from "../../../redux/redux-store";
 
-const ProfileInfo = () => {
+type PropsType = {
+    profile: UserProfileType
+}
+
+const ProfileInfo = (props: PropsType) => {
+
     return (
         <div>
             <div>
@@ -10,8 +16,9 @@ const ProfileInfo = () => {
                     alt="Man with a camera"
                     className={style.backgroundImage}/>
             </div>
-            <div className={style.descriptionBlock}>
-                ava + description
+            <div>
+                <img className={style.avatar} src={props.profile.photos.small} alt={"User avatar"}/>
+                <span>ava + description</span>
             </div>
         </div>
     )

@@ -1,5 +1,6 @@
-.descriptionBlock {
+.avatar {
     padding: 10px;
+    border-radius: 50%;
 }
 .backgroundImage {
     width: 100%;

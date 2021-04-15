@@ -24,6 +24,7 @@ export type ActionsTypes =
     | SetCurrentPageActionType
     | setTotalUsersCountActionType
     | SetIsFetchingActionType
+    | SetUserProfileActionType
 
 
 export type AppStateType = ReturnType<typeof rootReducer> //тип стейта приложения
@@ -64,6 +65,32 @@ export type setTotalUsersCountActionType = {
 export type SetIsFetchingActionType = {
     type: "TOGGLE_IS_FETCHING",
     isFetching: boolean
+}
+export type SetUserProfileActionType = {
+    type: "SET_USER_PROFILE",
+    profile: UserProfileType
+}
+
+export type UserProfileType = {
+    aboutMe: string,
+    contacts: {
+        facebook: string,
+        website: null,
+        vk: string,
+        twitter: string,
+        instagram: string,
+        youtube: string,
+        github: string,
+        mainLink: null
+    },
+    lookingForAJob: boolean,
+    lookingForAJobDescription: string,
+    fullName: string,
+    userId: number,
+    photos: {
+        small: string,
+        large: string
+    }
 }
 
 let store = createStore(rootReducer);

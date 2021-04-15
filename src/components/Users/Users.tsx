@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import {UserType} from "../../redux/users-reducer";
+import {NavLink} from "react-router-dom";
 
 type PropsType = {
     totalUsers: number,
@@ -33,9 +34,11 @@ let Users = (props: PropsType) => {
             <div key={Math.random()} className={styles.userInfo}>
                 <div>
                     <div className={styles.avaAndButtonBlock}>
+                        <NavLink to={"/profile/" + user.id}>
                         <img className={styles.userAvatar}
                              src={user.photos.small != null ? user.photos.small : userPhoto}
                              alt="profile picture"/>
+                        </NavLink>
                         {user.followed
                             ? <button onClick={() => {
                                 props.unfollow(user.id)
