@@ -29,10 +29,10 @@ let initialState = {
     ]
 };
 
-const sidebarReducer = (state: SidebarType = initialState, action: ActionsTypes) => {
+const headerReducer = (state: SidebarType = initialState, action: ActionsTypes) => {
     switch (action.type) {
         default: return state;
     }
 }
 
-export default sidebarReducer;
+export default headerReducer;

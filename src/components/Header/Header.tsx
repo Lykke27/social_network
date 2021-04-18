@@ -1,8 +1,8 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import style from './Sidebar.module.css'
+import style from './Header.module.css'
 
-const Sidebar = () => {
+const Header = () => {
     return (
         <div className={style.sidebar}>
             <div className={style.sidebarLinks}>
@@ -27,7 +27,6 @@ const Sidebar = () => {
                 <div className={style.item}>
                     <NavLink to="/settings" activeClassName={style.activeLink}>Settings</NavLink>
                 </div>
-
             </div>
             <div className={`${style.item} ${style.login}`}>
                 <NavLink to="/login">Login</NavLink>
@@ -36,4 +35,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar;
+export default Header;
