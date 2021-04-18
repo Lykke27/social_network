@@ -1,9 +1,9 @@
 import React from "react";
 import style from './News.module.css'
 
-const News = (props: any) => {
+const News = () => {
     return (
-        <div>
+        <div className={style.newsPage}>
             News
         </div>
     )

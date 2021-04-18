@@ -20,27 +20,15 @@
     text-decoration: none;
 }
 
+.item a:hover {
+    color: #eadac3;
+    transition: 0.2s;
+}
+
 .item a.activeLink {
     color: gold;
 }
 
-
-.friendsBlock {
-    height: 50px;
-    /*background-color: red;*/
-    display: flex;
-    text-align: center;
-    justify-content: space-around;
-    align-content: center;
-}
-
-.friendItem {
-    display: flex;
-    flex-direction: column;
-    margin: auto 10px;
-}
-
-.friendItem img {
-    width: 30px;
-    border-radius: 50%;
+.login {
+    color: white;
 }

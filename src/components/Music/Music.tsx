@@ -1,9 +1,9 @@
 import React from "react";
 import style from './Music.module.css'
 
-const Music = (props: any) => {
+const Music = () => {
     return (
-        <div>
+        <div className={style.musicPage}>
             Music files
         </div>
     )

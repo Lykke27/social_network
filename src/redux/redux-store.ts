@@ -27,7 +27,7 @@ export type ActionsTypes =
     | setTotalUsersCountActionType
     | SetIsFetchingActionType
     | SetUserProfileActionType
-    | setUserDataActionType
+    | setAuthUserDataActionType
 
 
 export type AppStateType = ReturnType<typeof rootReducer> //тип стейта приложения
@@ -73,17 +73,16 @@ export type SetUserProfileActionType = {
     type: "SET_USER_PROFILE",
     profile: UserProfileType
 }
-export type setUserDataActionType = {
+export type setAuthUserDataActionType = {
     type: "SET_USER_DATA",
     data: SetUserDataType
 }
-
 export type SetUserDataType = {
-    userId: number,
-    email: string,
-    login: string
+    email: null | string,
+    id: null | number,
+    login: null | string,
+    isAuth: boolean
 }
-
 export type UserProfileType = {
     aboutMe: string,
     contacts: {
@@ -107,5 +106,8 @@ export type UserProfileType = {
 }
 
 let store = createStore(rootReducer);
+
+// @ts-ignore  //save store global
+window.store =store
 
 export default store;

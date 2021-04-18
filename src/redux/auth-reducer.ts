@@ -1,35 +1,37 @@
-import {ActionsTypes, setUserDataActionType} from "./redux-store";
+import {ActionsTypes, setAuthUserDataActionType} from "./redux-store";
 
 const SET_USER_DATA = "SET_USER_DATA";
 
-let initialState = {
-    userId: null,
+export type InitialStateType = {
+    id: null | number,
+    email: null | string,
+    login: null | string,
+    isAuth: boolean
+}
+
+let initialState: InitialStateType = {
+    id: null,
     email: null,
-    login: null
+    login: null,
+    isAuth: false
 }
 
 const authReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
- switch (action.type){
-     case SET_USER_DATA: {
-         return {
-             ...state,
-             ...action.data
-         }
-     }
-     default:
-         return {...state}
- }
+    switch (action.type) {
+        case SET_USER_DATA: {
+            return {
+                ...state,
+                ...action.data,
+                isAuth: true
+            }
+        }
+        default:
+            return {...state}
+    }
 }
 
-export type InitialStateType = {
-    userId: null | number,
-    email: null | string,
-    login: null | string,
-}
-
-export const setUserData = (userId: number, email: string, login: string):setUserDataActionType => ({
-    type: SET_USER_DATA,
-    data: {userId, email, login}
+export const setAuthUserData = (data: InitialStateType): setAuthUserDataActionType => ({
+    type: SET_USER_DATA, data
 })
 
 export default authReducer;

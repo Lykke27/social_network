@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import FriendsBlock from "./components/FriendsBlock/FriendsBlock";
-import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -18,16 +17,13 @@ const App = () => {
             <HeaderContainer/>
             <FriendsBlock/>
             <div className='app-wrapper-content'>
-                <Route path='/profile/:userId?'
-                       render={() => <ProfileContainer/>}/>
-                <Route path='/dialogs'
-                       render={() => <DialogsContainer/>}/>
+                <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                 <Route path='/News' component={News}/>
                 <Route path='/Music' component={Music}/>
                 <Route path='/Settings' component={Settings}/>
                 <Route path='/Friends' component={Friends}/>
-                <Route path='/Users'
-                       render={() => <UsersContainer/>}/>
+                <Route path='/Users' render={() => <UsersContainer/>}/>
             </div>
         </div>
     );

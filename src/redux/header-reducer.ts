@@ -1,6 +1,6 @@
 import {ActionsTypes} from "./redux-store";
 
-export type SidebarType = {
+export type HeaderType = {
     sidebarFriends: Array<SidebarFriendsType>
 }
 export type SidebarFriendsType = {
@@ -29,7 +29,7 @@ let initialState = {
     ]
 };
 
-const headerReducer = (state: SidebarType = initialState, action: ActionsTypes) => {
+const headerReducer = (state: HeaderType = initialState, action: ActionsTypes) => {
     switch (action.type) {
         default: return state;
     }
