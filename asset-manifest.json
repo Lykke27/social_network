@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "//lykke27.github.io/social_network/static/css/main.98aeebc2.chunk.css",
+    "main.js": "//lykke27.github.io/social_network/static/js/main.b58f188a.chunk.js",
+    "main.js.map": "//lykke27.github.io/social_network/static/js/main.b58f188a.chunk.js.map",
+    "runtime-main.js": "//lykke27.github.io/social_network/static/js/runtime-main.1cce04be.js",
+    "runtime-main.js.map": "//lykke27.github.io/social_network/static/js/runtime-main.1cce04be.js.map",
+    "static/js/2.b034df43.chunk.js": "//lykke27.github.io/social_network/static/js/2.b034df43.chunk.js",
+    "static/js/2.b034df43.chunk.js.map": "//lykke27.github.io/social_network/static/js/2.b034df43.chunk.js.map",
+    "index.html": "//lykke27.github.io/social_network/index.html",
+    "static/css/main.98aeebc2.chunk.css.map": "//lykke27.github.io/social_network/static/css/main.98aeebc2.chunk.css.map",
+    "static/js/2.b034df43.chunk.js.LICENSE.txt": "//lykke27.github.io/social_network/static/js/2.b034df43.chunk.js.LICENSE.txt",
+    "static/media/giphy.eb6e8672.gif": "//lykke27.github.io/social_network/static/media/giphy.eb6e8672.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1cce04be.js",
+    "static/js/2.b034df43.chunk.js",
+    "static/css/main.98aeebc2.chunk.css",
+    "static/js/main.b58f188a.chunk.js"
+  ]
+}
