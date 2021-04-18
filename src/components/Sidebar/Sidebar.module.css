@@ -3,12 +3,16 @@
     background-color: cornflowerblue;
     padding: 10px;
     display: flex;
+    justify-content: space-between;
     box-shadow:0 0 6px rgba(0,0,0,0.5);
+}
+
+.sidebarLinks {
+    display: flex;
 }
 
 .item {
     margin: 10px;
-    display: flex;
 }
 
 .item a {
@@ -19,6 +23,7 @@
 .item a.activeLink {
     color: gold;
 }
+
 
 .friendsBlock {
     height: 50px;

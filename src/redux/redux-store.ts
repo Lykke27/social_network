@@ -4,17 +4,19 @@ import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import friendsReducer from "./friends-reducer";
 import usersReducer, {UserType} from "./users-reducer";
+import authReducer from "./auth-reducer";
 
 let rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     friendsPage: friendsReducer,
+    usersPage: usersReducer,
     sidebar: sidebarReducer,
-    usersPage: usersReducer
+    auth: authReducer
 });
 
 export type ActionsTypes =
-    AddPostActionType
+    | AddPostActionType
     | UpdateNewPostTextActionType
     | UpdateNewMessageBodyActionType
     | SendMessageActionType
@@ -25,6 +27,7 @@ export type ActionsTypes =
     | setTotalUsersCountActionType
     | SetIsFetchingActionType
     | SetUserProfileActionType
+    | setUserDataActionType
 
 
 export type AppStateType = ReturnType<typeof rootReducer> //тип стейта приложения
@@ -69,6 +72,16 @@ export type SetIsFetchingActionType = {
 export type SetUserProfileActionType = {
     type: "SET_USER_PROFILE",
     profile: UserProfileType
+}
+export type setUserDataActionType = {
+    type: "SET_USER_DATA",
+    data: SetUserDataType
+}
+
+export type SetUserDataType = {
+    userId: number,
+    email: string,
+    login: string
 }
 
 export type UserProfileType = {
