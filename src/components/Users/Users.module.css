@@ -7,10 +7,10 @@
 }
 
 .userInfo {
-    background-color: rgba(34, 150, 172, 0.8);
+    background-color: #a0c3ff;
     display: flex;
     margin: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .userInfo > div {

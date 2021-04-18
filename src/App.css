@@ -7,10 +7,14 @@
     "friendsBlock content";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 9fr;
-    grid-gap: 5px;
+    grid-gap: 15px;
+
 }
 
 .app-wrapper-content {
     grid-area: content;
-    background-color: #baba0e;
+    box-shadow:0 0 3px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    /*background-color: #EDEEF0;*/
+    background-color: white;
 }
