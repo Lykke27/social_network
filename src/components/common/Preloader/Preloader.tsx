@@ -6,7 +6,7 @@ import preloader from "../../../assets/images/giphy.gif";
 let Preloader = () => {
     return (
         <div>
-            <img className={styles.preloader} src={preloader}/>
+            <img className={styles.preloader} src={preloader} alt="preloader"/>
         </div>
     )
 }

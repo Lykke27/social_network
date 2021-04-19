@@ -63,7 +63,6 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionsTyp
     }
 }
 
-
 type InitialStateType = typeof initialState;
 export type UsersPageType = {
     users: Array<UserType>
