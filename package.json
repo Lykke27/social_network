@@ -24,7 +24,7 @@
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "https://https://lykke27.github.io/social_network",
+  "homepage": "https://lykke27.github.io/social_network",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
