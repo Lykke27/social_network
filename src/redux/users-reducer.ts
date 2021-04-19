@@ -1,7 +1,7 @@
 import {
     ActionsTypes,
     FollowActionType,
-    SetCurrentPageActionType, SetIsFetchingActionType,
+    SetCurrentPageActionType, SetFollowingInProgressActionType, SetIsFetchingActionType,
     SetUsersActionType,
     UnfollowActionType
 } from "./redux-store";
@@ -12,13 +12,15 @@ const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
 
 let initialState = {
     users: [] as Array<UserType>,
     pageSize: 5,
     totalUsers: 0,
     currentPage: 1,
-    isFetching: true
+    isFetching: true,
+    followingInProgress: [0]
 };
 
 const usersReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
@@ -58,18 +60,28 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionsTyp
         case TOGGLE_IS_FETCHING: {
             return {...state, isFetching: action.isFetching}
         }
+        case TOGGLE_IS_FOLLOWING_PROGRESS: {
+            return {
+                ...state,
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userID]
+                    : state.followingInProgress.filter(id => id !== action.userID)
+            }
+        }
         default:
             return state;
     }
 }
 
 type InitialStateType = typeof initialState;
+
 export type UsersPageType = {
     users: Array<UserType>
     pageSize: number,
     totalUsers: number,
     currentPage: number
-    isFetching: boolean
+    isFetching: boolean,
+    followingInProgress: Array<number>
 }
 
 // type UserType = typeof Users можно попробовать так
@@ -102,6 +114,9 @@ export const setTotalUsersCount = (totalUsers: number) => ({
 })
 export const setIsFetching = (isFetching: boolean): SetIsFetchingActionType => ({
     type: TOGGLE_IS_FETCHING, isFetching
+})
+export const setFollowingInProgress = (isFetching: boolean, userID: number): SetFollowingInProgressActionType => ({
+    type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userID
 })
 
 export default usersReducer;

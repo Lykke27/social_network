@@ -1,4 +1,4 @@
-import {ActionsTypes, setAuthUserDataActionType} from "./redux-store";
+import {ActionsTypes, SetAuthUserDataActionType} from "./redux-store";
 
 const SET_USER_DATA = "SET_USER_DATA";
 
@@ -30,7 +30,7 @@ const authReducer = (state: InitialStateType = initialState, action: ActionsType
     }
 }
 
-export const setAuthUserData = (data: InitialStateType): setAuthUserDataActionType => ({
+export const setAuthUserData = (data: InitialStateType): SetAuthUserDataActionType => ({
     type: SET_USER_DATA, data
 })
 

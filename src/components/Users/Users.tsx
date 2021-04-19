@@ -12,7 +12,9 @@ type PropsType = {
     onPageChanging: (p: number) => void,
     users: Array<UserType>,
     unfollow: (userId: number) => void,
-    follow: (userId: number) => void
+    follow: (userId: number) => void,
+    followingInProgress: Array<number>,
+    setFollowingInProgress: (isFetching: boolean, userID: number) => void
 }
 
 let Users = (props: PropsType) => {
@@ -38,10 +40,12 @@ let Users = (props: PropsType) => {
                         <NavLink to={"/profile/" + user.id}>
                             <img className={styles.userAvatar}
                                  src={user.photos.small != null ? user.photos.small : userPhoto}
-                                 alt="profile picture"/>
+                                 alt="profile avatar"/>
                         </NavLink>
                         {user.followed
-                            ? <button onClick={() => {
+
+                            ? <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                                props.setFollowingInProgress(true, user.id);
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
                                     {
                                         withCredentials: true,
@@ -53,10 +57,12 @@ let Users = (props: PropsType) => {
                                         if (response.data.resultCode === 0) {
                                             props.unfollow(user.id)
                                         }
+                                        props.setFollowingInProgress(false, user.id);
                                     });
                             }}>Unfollow</button>
 
-                            : <button onClick={() => {
+                            : <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                                props.setFollowingInProgress(true, user.id);
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
                                     withCredentials: true,
                                     headers: {
@@ -67,8 +73,10 @@ let Users = (props: PropsType) => {
                                         if (response.data.resultCode === 0) {
                                             props.follow(user.id)
                                         }
+                                        props.setFollowingInProgress(false, user.id);
                                     });
-                            }}>Follow</button>}
+                            }}>Follow</button>
+                        }
                     </div>
                 </div>
 

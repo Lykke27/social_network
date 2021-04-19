@@ -24,10 +24,11 @@ export type ActionsTypes =
     | UnfollowActionType
     | SetUsersActionType
     | SetCurrentPageActionType
-    | setTotalUsersCountActionType
+    | SetTotalUsersCountActionType
     | SetIsFetchingActionType
     | SetUserProfileActionType
-    | setAuthUserDataActionType
+    | SetAuthUserDataActionType
+    | SetFollowingInProgressActionType
 
 
 export type AppStateType = ReturnType<typeof rootReducer> //тип стейта приложения
@@ -61,7 +62,7 @@ export type SetCurrentPageActionType = {
     type: "SET_CURRENT_PAGE",
     currentPage: number
 }
-export type setTotalUsersCountActionType = {
+export type SetTotalUsersCountActionType = {
     type: "SET_TOTAL_USERS_COUNT",
     totalUsers: number
 }
@@ -73,9 +74,14 @@ export type SetUserProfileActionType = {
     type: "SET_USER_PROFILE",
     profile: UserProfileType
 }
-export type setAuthUserDataActionType = {
+export type SetAuthUserDataActionType = {
     type: "SET_USER_DATA",
     data: SetUserDataType
+}
+export type SetFollowingInProgressActionType = {
+    type: "TOGGLE_IS_FOLLOWING_PROGRESS",
+    isFetching: boolean,
+    userID:number
 }
 export type SetUserDataType = {
     email: null | string,
@@ -108,6 +114,6 @@ export type UserProfileType = {
 let store = createStore(rootReducer);
 
 // @ts-ignore  //save store global
-window.store =store
+window.store = store
 
 export default store;
