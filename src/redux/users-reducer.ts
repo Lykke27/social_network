@@ -5,6 +5,8 @@ import {
     SetUsersActionType,
     UnfollowActionType
 } from "./redux-store";
+import {usersAPI} from "../api/api";
+import {Dispatch} from "react";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -118,5 +120,15 @@ export const setIsFetching = (isFetching: boolean): SetIsFetchingActionType => (
 export const setFollowingInProgress = (isFetching: boolean, userID: number): SetFollowingInProgressActionType => ({
     type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userID
 })
+
+export const getUsersThunkCreator = (currentPage: number, pageSize: number) => (dispatch: Dispatch<any>) => {
+    dispatch(setIsFetching(true));
+    usersAPI.getUsers(currentPage, pageSize)
+        .then(data => {
+            dispatch(setIsFetching(false));
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+        });
+}
 
 export default usersReducer;
