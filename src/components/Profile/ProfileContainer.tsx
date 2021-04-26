@@ -1,9 +1,8 @@
 import React from "react";
 import Profile from "./Profile";
-import axios from "axios";
 import {connect} from "react-redux";
 import {AppStateType, UserProfileType} from "../../redux/redux-store";
-import {setUserProfile} from "../../redux/profile-reducer";
+import {getUserProfile} from "../../redux/profile-reducer";
 import Preloader from "../common/Preloader/Preloader";
 import {RouteComponentProps, withRouter} from "react-router";
 
@@ -16,24 +15,19 @@ type MapStatePropsType = {
 }
 type MapDispatchPropsType = {
     // описываем, что возвращает MapDispatchToProps
-    setUserProfile: (profile: UserProfileType) => void
+    getUserProfile: Function
 }
 type UsersProfilePropsType = MapDispatchPropsType & MapStatePropsType
 type CommonUsersProfilePropsType = RouteComponentProps<PathParamType> & UsersProfilePropsType
 
 class ProfileContainer extends React.Component<CommonUsersProfilePropsType> {
-
     componentDidMount() {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = "2";
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+ userId)
-            .then(response => {
-                this.props.setUserProfile(response.data)
-            });
+        this.props.getUserProfile(userId);
     }
-
     render() {
         return (
             this.props.profile
@@ -43,7 +37,6 @@ class ProfileContainer extends React.Component<CommonUsersProfilePropsType> {
     }
 }
 
-
 let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         profile: state.profilePage.profile
@@ -52,5 +45,4 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
 
 let WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
-export default connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>
-(mapStateToProps, {setUserProfile})(WithUrlDataContainerComponent);
+export default connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {getUserProfile})(WithUrlDataContainerComponent);

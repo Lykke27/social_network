@@ -1,10 +1,12 @@
 import {ActionsTypes, SetUserProfileActionType, UserProfileType} from "./redux-store";
+import {usersAPI} from "../api/api";
+import {Dispatch} from "react";
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 
-let initialState: ProfilePageType= {
+let initialState: ProfilePageType = {
     posts: [
         {id: 1, message: 'Hello!', likeCount: 5},
         {id: 2, message: "It's my first post", likeCount: 15},
@@ -16,7 +18,7 @@ let initialState: ProfilePageType= {
     profile: null
 };
 
-const profileReducer = (state:ProfilePageType = initialState, action: ActionsTypes): ProfilePageType => {
+const profileReducer = (state: ProfilePageType = initialState, action: ActionsTypes): ProfilePageType => {
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
@@ -65,9 +67,15 @@ export const updateNewPostText = (text: string) => ({
     type: UPDATE_NEW_POST_TEXT,
     newText: text
 })
-export const setUserProfile = (profile: UserProfileType):SetUserProfileActionType => ({
+const setUserProfile = (profile: UserProfileType): SetUserProfileActionType => ({
     type: SET_USER_PROFILE, profile
 })
+
+export const getUserProfile = (userId: string) => (dispatch: Dispatch<any>) => {
+    usersAPI.getProfile(userId).then(response => {
+        dispatch(setUserProfile(response.data))
+    })
+}
 
 export default profileReducer;
 
