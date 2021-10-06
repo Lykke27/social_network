@@ -20,21 +20,23 @@ const ProfileInfo = (props: PropsType) => {
                 <div>
                     <img className={style.avatar} src={props.profile.photos.large} alt={"User avatar"}/>
                 </div>
+                {console.log(props.profile)}
                 <div className={style.description}>
-
                     <span><b> {props.profile.fullName}</b></span>
-                    <span>userId: {props.profile.userId}</span>
-                    <span>lookingForAJob: {props.profile.lookingForAJob}</span>
+                    <span>ID: {props.profile.userId}</span>
+                    <span>Looking For A Job: {props.profile.lookingForAJobDescription}</span>
                 </div>
                     <div>
                         <ul>My contacts:
-                            <li>GitHub: <a href={``}>{props.profile.contacts.github}</a>
+                            <li>GitHub: <a href={''}>{props.profile.contacts.github}</a>
                             </li>
-                            <li>VK: <a href={``}>{props.profile.contacts.vk}</a>
+                            <li>VK: <a href={''}>{props.profile.contacts.vk}</a>
                             </li>
                         </ul>
                     </div>
-
+            </div>
+            <div className={style.aboutMeBlock}>
+                <div> <b>About Me:</b> {props.profile.aboutMe}</div>
             </div>
         </div>
     )
