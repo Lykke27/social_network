@@ -28,9 +28,9 @@ const ProfileInfo = (props: PropsType) => {
                 </div>
                     <div>
                         <ul>My contacts:
-                            <li>GitHub: <a href={''}>{props.profile.contacts.github}</a>
+                            <li>GitHub: <a href={props.profile.contacts.github}>{props.profile.contacts.github}</a>
                             </li>
-                            <li>VK: <a href={''}>{props.profile.contacts.vk}</a>
+                            <li>VK: <a href={props.profile.contacts.github}>{props.profile.contacts.vk}</a>
                             </li>
                         </ul>
                     </div>
