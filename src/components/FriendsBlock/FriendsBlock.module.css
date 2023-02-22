@@ -1,12 +1,10 @@
 .friendsBlock {
     grid-area: friendsBlock;
-    /*background-color: #EDEEF0;*/
     background-color: white;
     display: flex;
     flex-direction: column;
     padding: 5px;
     border-radius: 5px;
-    /*border: 1px solid #f1efef;*/
     box-shadow:0 0 3px rgba(0,0,0,0.5);
 }
 
