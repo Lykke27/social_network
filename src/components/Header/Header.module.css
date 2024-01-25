@@ -11,24 +11,21 @@
     display: flex;
 }
 
-.item {
+.navItem {
     margin: 10px;
 }
 
-.item a {
+.navItem {
     color: white;
     text-decoration: none;
 }
 
-.item a:hover {
+.navItem:hover {
     color: #eadac3;
     transition: 0.2s;
-}
-
-.item a.activeLink {
-    color: gold;
 }
 
 .login {
     color: white;
 }
+

@@ -16,6 +16,8 @@ let rootReducer = combineReducers({
     auth: authReducer
 });
 
+export type RootState = ReturnType<typeof rootReducer>;
+
 export type ActionsTypes =
     | AddPostActionType
     | UpdateNewPostTextActionType

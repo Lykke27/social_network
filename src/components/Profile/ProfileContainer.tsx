@@ -1,48 +1,38 @@
-import React from "react";
-import Profile from "./Profile";
-import {connect} from "react-redux";
-import {AppStateType, UserProfileType} from "../../redux/redux-store";
-import {getUserProfile} from "../../redux/profile-reducer";
+import React, { useEffect } from "react";
+import { connect, ConnectedProps } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getUserProfile } from "../../redux/profile-reducer";
 import Preloader from "../common/Preloader/Preloader";
-import {RouteComponentProps, withRouter} from "react-router";
+import Profile from "./Profile";
+import { RootState } from "../../redux/redux-store";
 
-type PathParamType = {
-    userId: string
-}
-type MapStatePropsType = {
-    // описываем, что возвращает MapStateToProps
-    profile: null | UserProfileType
-}
-type MapDispatchPropsType = {
-    // описываем, что возвращает MapDispatchToProps
-    getUserProfile: Function
-}
-type UsersProfilePropsType = MapDispatchPropsType & MapStatePropsType
-type CommonUsersProfilePropsType = RouteComponentProps<PathParamType> & UsersProfilePropsType
+const mapStateToProps = (state: RootState) => ({
+  profile: state.profilePage.profile,
+});
 
-class ProfileContainer extends React.Component<CommonUsersProfilePropsType> {
-    componentDidMount() {
-        let userId = this.props.match.params.userId;
-        if (!userId) {
-            userId = "2";
-        }
-        this.props.getUserProfile(userId);
+const mapDispatchToProps = {
+  getUserProfile,
+};
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+const ProfileContainer: React.FC<PropsFromRedux> = ({
+  profile,
+  getUserProfile,
+}) => {
+  const { userId } = useParams<{ userId: string }>();
+
+  useEffect(() => {
+    if (!userId) {
+      getUserProfile("2");
+    } else {
+      getUserProfile(userId);
     }
-    render() {
-        return (
-            this.props.profile
-                ? <Profile {...this.props} profile={this.props.profile}/>
-                : <Preloader/>
-        )
-    }
-}
+  }, [userId, getUserProfile]);
 
-let mapStateToProps = (state: AppStateType): MapStatePropsType => {
-    return {
-        profile: state.profilePage.profile
-    }
-}
+  return profile ? <Profile profile={profile} /> : <Preloader />;
+};
 
-let WithUrlDataContainerComponent = withRouter(ProfileContainer);
-
-export default connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {getUserProfile})(WithUrlDataContainerComponent);
+export default connector(ProfileContainer);
